@@ -2,9 +2,9 @@ import React from "react";
 import { Card } from "react-bootstrap";
 import Moment from "react-moment";
 
-const BlogCard = ({ blog }) => {
+const BlogCard = ({ blog, handleClick }) => {
   return (
-    <Card>
+    <Card onClick={() => handleClick(blog._id)} className="item">
       <Card.Img variant="top" src="https://via.placeholder.com/160x100" />
       <Card.Body>
         <Card.Title>{blog.title}</Card.Title>
@@ -15,11 +15,9 @@ const BlogCard = ({ blog }) => {
         </Card.Text>
       </Card.Body>
       <Card.Footer>
-        <small className="text-muted">
-          <span className="text-muted">
-            @{blog?.user?.name} wrote <Moment fromNow>{blog.createdAt}</Moment>
-          </span>
-        </small>
+        <span className="text-muted">
+          @{blog?.user?.name} wrote <Moment fromNow>{blog.createdAt}</Moment>
+        </span>
       </Card.Footer>
     </Card>
   );

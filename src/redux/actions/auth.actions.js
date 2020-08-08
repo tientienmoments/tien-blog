@@ -37,9 +37,16 @@ const getCurrentUser = (accessToken) => async (dispatch) => {
     dispatch({ type: types.GET_CURRENT_USER_FAILURE, payload: error });
   }
 };
+const logout = () => (dispatch) => {
+  delete api.defaults.headers.common["authorization"];
+  localStorage.setItem("accessToken", "");
+  dispatch({ type: types.LOGOUT, payload: null });
+};
+
 
 export const authActions = {
   loginRequest,
   register,
   getCurrentUser,
+  logout,
 };
