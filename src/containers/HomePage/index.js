@@ -27,16 +27,43 @@ const HomePage = () => {
     <div>
 
       {isAuthenticated ?
-        <Jumbotron className="text-center">
+        <Jumbotron className="text-center tien-jumbotron-style">
+          <div>
+            <div className="ternary-system">
+              <div className="sun primary"></div>
+              <div className="sun secondary"></div>
+              <div className="sun ternary"></div>
+            </div>
+            <div className="sand">
+              <div className="pendulums">
+                <div className="pendulum">
+                  <div className="bar"></div>
+                  <div className="motion">
+                    <div className="string"></div>
+                    <div className="weight"></div>
+                  </div>
+                </div>
+                <div className="pendulum shadow">
+                  <div className="bar"></div>
+                  <div className="motion">
+                    <div className="string"></div>
+                    <div className="weight"></div>
+                  </div>
+                </div>
+              </div></div>
+            <div className="pyramid"></div>
+            <div className="text">
+              <h4 className="title"><strong>Write</strong><em>your Moments</em></h4>
+              <Link to="/blog/add">
+                <Button variant="info">Here</Button>
+              </Link>
+            </div>
 
-          <h1>Social Blog</h1>
-          <p>Write about your amazing experiences.</p>
-          {/* {isAuthenticated && ( */}
-          <Link to="/blog/add">
-            <Button variant="primary">Write now</Button>
-          </Link>
-          {/* )} */}
+
+
+          </div>
         </Jumbotron>
+
         :
         <Jumbotron className="text-center tien-jumbotron-style">
           <div>
@@ -65,7 +92,7 @@ const HomePage = () => {
             <div className="pyramid"></div>
             <div className="text">
               <h4 className="title"><strong>Save</strong><em>your Moments</em></h4>
-              
+
             </div>
 
 
@@ -79,14 +106,14 @@ const HomePage = () => {
           <>
             <Container>
               <div className="tien-card">
-                <div className="thumbnail"><img class="left" src="https://cdn2.hubspot.net/hubfs/322787/Mychefcom/images/BLOG/Header-Blog/photo-culinaire-pexels.jpg" /></div>
+                <div className="thumbnail"><img class="left" src="https://cdn.kimkim.com/files/a/content_articles/featured_photos/897c1fab01ff5ebb3a4b370d52efac89f6c83f37/big-c6fe29388e86817077d33f3bdbba7ed8.jpg" /></div>
                 <div className="right">
-                  <h1 style={{ fontSize: "50px" }}>Why you Need More Magnesium in Your Daily Diet</h1>
+                  <h1 style={{ fontSize: "50px" }}>Best Time of Year to Visit Santorini</h1>
                   <div className="author"><img src="https://randomuser.me/api/portraits/men/95.jpg" />
                     <h2 className="tien-author-style text-muted">@Minh Vu</h2>
                   </div>
                   <div className="separator"></div>
-                  <p>Magnesium is one of the six essential macro-minerals that is required by the body...</p>
+                  <p>Santorini is always a good idea, whether you are visiting in fall or during summer. The spring is perfect for enjoying warm weather, hiking, and...</p>
                   <div className="separator"></div>
                   <Row className="tien-reaction-style" >
                     <img src="https://i.pinimg.com/originals/9e/6c/2b/9e6c2b1ba0487591039b9909c0c00473.jpg" alt="icon" style={{ width: "50px", borderRadius: "80px" }} />
@@ -138,14 +165,14 @@ const HomePage = () => {
               </div>
 
               <div className="tien-card">
-                <div className="thumbnail"><img class="left" src="https://cdn2.hubspot.net/hubfs/322787/Mychefcom/images/BLOG/Header-Blog/photo-culinaire-pexels.jpg" /></div>
+                <div className="thumbnail"><img class="left" src="https://theplanetd.com/images/camping-in-antarctica-tent.jpg" /></div>
                 <div className="right">
-                  <h1 style={{ fontSize: "50px" }}>Why you Need More Magnesium in Your Daily Diet</h1>
+                  <h1 style={{ fontSize: "50px" }}>CAMPING IN ANTARCTICA</h1>
                   <div className="author"><img src="https://randomuser.me/api/portraits/men/95.jpg" />
                     <h2 className="tien-author-style text-mute">@Stefano</h2>
                   </div>
                   <div className="separator"></div>
-                  <p>Magnesium is one of the six essential macro-minerals that is required by the body...</p>
+                  <p>Did we get to sleep in tents like these? No way! These luxurious beauties were filled with our emergency...</p>
                   <div className="separator"></div>
                   <Row className="tien-reaction-style" >
                     <img src="https://i.pinimg.com/originals/9e/6c/2b/9e6c2b1ba0487591039b9909c0c00473.jpg" alt="icon" style={{ width: "50px", borderRadius: "80px" }} />
