@@ -39,20 +39,20 @@ const HomePage = () => {
           <ClipLoader color="#f86c6b" size={150} loading={loading} />
         ) : (
             <>
-            {blogs.length ? (
-              <CardColumns>
-                {blogs.map((blog) => (
-                  <BlogCard
-                    blog={blog}
-                    key={blog._id}
-                    handleClick={handleClickOnBlog}
-                  />
-                ))}
-              </CardColumns>
-            ) : (
-              <p>There are no blogs.</p>
-            )}
-          </>
+              {blogs.length ? (
+                <CardColumns>
+                  {blogs.map((blog) => (
+                    <BlogCard
+                      blog={blog}
+                      key={blog._id}
+                      handleClick={handleClickOnBlog}
+                    />
+                  ))}
+                </CardColumns>
+              ) : (
+                  <p>There are no blogs.</p>
+                )}
+            </>
           )}
       </Container>
     </>
