@@ -39,9 +39,38 @@ const HomePage = () => {
         </Jumbotron>
         :
         <Jumbotron className="text-center tien-jumbotron-style">
-          
-          <h1>Social Blog</h1>
-          <p>Write about your amazing experiences.</p>
+          <div>
+            <div className="ternary-system">
+              <div className="sun primary"></div>
+              <div className="sun secondary"></div>
+              <div className="sun ternary"></div>
+            </div>
+            <div className="sand">
+              <div className="pendulums">
+                <div className="pendulum">
+                  <div className="bar"></div>
+                  <div className="motion">
+                    <div className="string"></div>
+                    <div className="weight"></div>
+                  </div>
+                </div>
+                <div className="pendulum shadow">
+                  <div className="bar"></div>
+                  <div className="motion">
+                    <div className="string"></div>
+                    <div className="weight"></div>
+                  </div>
+                </div>
+              </div></div>
+            <div className="pyramid"></div>
+            <div className="text">
+              <h4 className="title"><strong>Save</strong><em>your Moments</em></h4>
+              
+            </div>
+
+
+
+          </div>
         </Jumbotron>}
 
       {loading ? (
@@ -52,7 +81,7 @@ const HomePage = () => {
               <div className="tien-card">
                 <div className="thumbnail"><img class="left" src="https://cdn2.hubspot.net/hubfs/322787/Mychefcom/images/BLOG/Header-Blog/photo-culinaire-pexels.jpg" /></div>
                 <div className="right">
-                  <h1 style={{fontSize:"50px"}}>Why you Need More Magnesium in Your Daily Diet</h1>
+                  <h1 style={{ fontSize: "50px" }}>Why you Need More Magnesium in Your Daily Diet</h1>
                   <div className="author"><img src="https://randomuser.me/api/portraits/men/95.jpg" />
                     <h2 className="tien-author-style text-muted">@Minh Vu</h2>
                   </div>
@@ -60,18 +89,18 @@ const HomePage = () => {
                   <p>Magnesium is one of the six essential macro-minerals that is required by the body...</p>
                   <div className="separator"></div>
                   <Row className="tien-reaction-style" >
-                  <img src="https://i.pinimg.com/originals/9e/6c/2b/9e6c2b1ba0487591039b9909c0c00473.jpg" alt="icon" style={{width:"50px",borderRadius:"80px"}}/>
+                    <img src="https://i.pinimg.com/originals/9e/6c/2b/9e6c2b1ba0487591039b9909c0c00473.jpg" alt="icon" style={{ width: "50px", borderRadius: "80px" }} />
                   1
-                  <img src="https://i.pinimg.com/originals/56/ae/c6/56aec6a4fed459cb78bb5cd4d80481f7.png" alt="icon" style={{width:"70px",borderRadius:"80px"}}/>
+                  <img src="https://i.pinimg.com/originals/56/ae/c6/56aec6a4fed459cb78bb5cd4d80481f7.png" alt="icon" style={{ width: "70px", borderRadius: "80px" }} />
                   2
-                  <img src="https://i.pinimg.com/originals/ea/ec/38/eaec38b87381bdc0a39f43d76f1fbe14.jpg" alt="icon" style={{width:"50px",borderRadius:"80px"}}/>
+                  <img src="https://i.pinimg.com/originals/ea/ec/38/eaec38b87381bdc0a39f43d76f1fbe14.jpg" alt="icon" style={{ width: "50px", borderRadius: "80px" }} />
                   3
-                  <img src="https://i.pinimg.com/originals/75/b7/87/75b787e99b42d53d79fd90050668397f.jpg" alt="icon" style={{width:"50px",borderRadius:"80px"}}/>
+                  <img src="https://i.pinimg.com/originals/75/b7/87/75b787e99b42d53d79fd90050668397f.jpg" alt="icon" style={{ width: "50px", borderRadius: "80px" }} />
                   4
-                  <img src="https://i.pinimg.com/originals/a9/23/80/a92380a8e38e832687334deeddfb2af9.png" alt="icon" style={{width:"75px",borderRadius:"80px"}}/>
+                  <img src="https://i.pinimg.com/originals/a9/23/80/a92380a8e38e832687334deeddfb2af9.png" alt="icon" style={{ width: "75px", borderRadius: "80px" }} />
                   5
                   </Row>
-                
+
                 </div>
                 <div className="tien-card-bottom">
                   <div >Wrote</div>
@@ -82,7 +111,7 @@ const HomePage = () => {
               <div className="tien-card">
                 <div className="thumbnail"><img class="left" src="https://cdn2.hubspot.net/hubfs/322787/Mychefcom/images/BLOG/Header-Blog/photo-culinaire-pexels.jpg" /></div>
                 <div className="right">
-                  <h1 style={{fontSize:"50px"}}>Why you Need More Magnesium in Your Daily Diet</h1>
+                  <h1 style={{ fontSize: "50px" }}>Why you Need More Magnesium in Your Daily Diet</h1>
                   <div className="author"><img src="https://randomuser.me/api/portraits/men/95.jpg" />
                     <h2 className="tien-author-style text-muted">@Dung</h2>
                   </div>
@@ -90,15 +119,15 @@ const HomePage = () => {
                   <p>Magnesium is one of the six essential macro-minerals that is required by the body...</p>
                   <div className="separator"></div>
                   <Row className="tien-reaction-style" >
-                  <img src="https://i.pinimg.com/originals/9e/6c/2b/9e6c2b1ba0487591039b9909c0c00473.jpg" alt="icon" style={{width:"50px",borderRadius:"80px"}}/>
+                    <img src="https://i.pinimg.com/originals/9e/6c/2b/9e6c2b1ba0487591039b9909c0c00473.jpg" alt="icon" style={{ width: "50px", borderRadius: "80px" }} />
                   8
-                  <img src="https://i.pinimg.com/originals/56/ae/c6/56aec6a4fed459cb78bb5cd4d80481f7.png" alt="icon" style={{width:"70px",borderRadius:"80px"}}/>
+                  <img src="https://i.pinimg.com/originals/56/ae/c6/56aec6a4fed459cb78bb5cd4d80481f7.png" alt="icon" style={{ width: "70px", borderRadius: "80px" }} />
                   9
-                  <img src="https://i.pinimg.com/originals/ea/ec/38/eaec38b87381bdc0a39f43d76f1fbe14.jpg" alt="icon" style={{width:"50px",borderRadius:"80px"}}/>
+                  <img src="https://i.pinimg.com/originals/ea/ec/38/eaec38b87381bdc0a39f43d76f1fbe14.jpg" alt="icon" style={{ width: "50px", borderRadius: "80px" }} />
                   6
-                  <img src="https://i.pinimg.com/originals/75/b7/87/75b787e99b42d53d79fd90050668397f.jpg" alt="icon" style={{width:"50px",borderRadius:"80px"}}/>
+                  <img src="https://i.pinimg.com/originals/75/b7/87/75b787e99b42d53d79fd90050668397f.jpg" alt="icon" style={{ width: "50px", borderRadius: "80px" }} />
                   5
-                  <img src="https://i.pinimg.com/originals/a9/23/80/a92380a8e38e832687334deeddfb2af9.png" alt="icon" style={{width:"75px",borderRadius:"80px"}}/>
+                  <img src="https://i.pinimg.com/originals/a9/23/80/a92380a8e38e832687334deeddfb2af9.png" alt="icon" style={{ width: "75px", borderRadius: "80px" }} />
                   7
                   </Row>
                 </div>
@@ -111,7 +140,7 @@ const HomePage = () => {
               <div className="tien-card">
                 <div className="thumbnail"><img class="left" src="https://cdn2.hubspot.net/hubfs/322787/Mychefcom/images/BLOG/Header-Blog/photo-culinaire-pexels.jpg" /></div>
                 <div className="right">
-                  <h1 style={{fontSize:"50px"}}>Why you Need More Magnesium in Your Daily Diet</h1>
+                  <h1 style={{ fontSize: "50px" }}>Why you Need More Magnesium in Your Daily Diet</h1>
                   <div className="author"><img src="https://randomuser.me/api/portraits/men/95.jpg" />
                     <h2 className="tien-author-style text-mute">@Stefano</h2>
                   </div>
@@ -119,18 +148,18 @@ const HomePage = () => {
                   <p>Magnesium is one of the six essential macro-minerals that is required by the body...</p>
                   <div className="separator"></div>
                   <Row className="tien-reaction-style" >
-                  <img src="https://i.pinimg.com/originals/9e/6c/2b/9e6c2b1ba0487591039b9909c0c00473.jpg" alt="icon" style={{width:"50px",borderRadius:"80px"}}/>
+                    <img src="https://i.pinimg.com/originals/9e/6c/2b/9e6c2b1ba0487591039b9909c0c00473.jpg" alt="icon" style={{ width: "50px", borderRadius: "80px" }} />
                   7
-                  <img src="https://i.pinimg.com/originals/56/ae/c6/56aec6a4fed459cb78bb5cd4d80481f7.png" alt="icon" style={{width:"70px",borderRadius:"80px"}}/>
+                  <img src="https://i.pinimg.com/originals/56/ae/c6/56aec6a4fed459cb78bb5cd4d80481f7.png" alt="icon" style={{ width: "70px", borderRadius: "80px" }} />
                   8
-                  <img src="https://i.pinimg.com/originals/ea/ec/38/eaec38b87381bdc0a39f43d76f1fbe14.jpg" alt="icon" style={{width:"50px",borderRadius:"80px"}}/>
+                  <img src="https://i.pinimg.com/originals/ea/ec/38/eaec38b87381bdc0a39f43d76f1fbe14.jpg" alt="icon" style={{ width: "50px", borderRadius: "80px" }} />
                   2
-                  <img src="https://i.pinimg.com/originals/75/b7/87/75b787e99b42d53d79fd90050668397f.jpg" alt="icon" style={{width:"50px",borderRadius:"80px"}}/>
+                  <img src="https://i.pinimg.com/originals/75/b7/87/75b787e99b42d53d79fd90050668397f.jpg" alt="icon" style={{ width: "50px", borderRadius: "80px" }} />
                   4
-                  <img src="https://i.pinimg.com/originals/a9/23/80/a92380a8e38e832687334deeddfb2af9.png" alt="icon" style={{width:"75px",borderRadius:"80px"}}/>
+                  <img src="https://i.pinimg.com/originals/a9/23/80/a92380a8e38e832687334deeddfb2af9.png" alt="icon" style={{ width: "75px", borderRadius: "80px" }} />
                   5
                   </Row>
-                
+
                 </div>
                 <div className="tien-card-bottom">
                   <div >Wrote</div>

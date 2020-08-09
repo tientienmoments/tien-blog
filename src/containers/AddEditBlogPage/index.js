@@ -60,6 +60,7 @@ const AddEditBlogPage = () => {
   if (redirectTo) return <Redirect to={redirectTo} />;
 
   return (
+    <Container>
     <div className="tien-page-edit" >
 
       <div className="top"></div>
@@ -143,6 +144,7 @@ const AddEditBlogPage = () => {
 
 
     </div>
+    </Container>
   );
 };
 
