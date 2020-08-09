@@ -5,6 +5,8 @@ const initialState = {
   selectedBlog: {},
   loading: false,
   submitReviewLoading: false,
+  pageNum: 0,
+  totalResults: 0
 };
 
 const blogReducer = (state = initialState, action) => {
@@ -15,10 +17,12 @@ const blogReducer = (state = initialState, action) => {
     case types.CREATE_BLOG_REQUEST:
     case types.UPDATE_BLOG_REQUEST:
     case types.DELETE_BLOG_REQUEST:
+    case types.UPDATE_REACTION_REQUEST:
       return { ...state, loading: true };
 
     case types.BLOG_REQUEST_SUCCESS:
-      return { ...state, blogs: payload, loading: false };
+      console.log('BLOG_REQUEST_SUCCESS.payload:', payload)
+      return { ...state, blogs: payload.blogs, pageNum: payload.pageNum, totalResults: payload.totalResults, loading: false };
 
     case types.UPDATE_BLOG_SUCCESS:
     case types.GET_SINGLE_BLOG_REQUEST_SUCCESS:
@@ -30,6 +34,7 @@ const blogReducer = (state = initialState, action) => {
     case types.CREATE_BLOG_SUCCESS:
     case types.UPDATE_BLOG_FAILURE:
     case types.DELETE_BLOG_FAILURE:
+    case types.UPDATE_REACTION_FAILURE:
       return { ...state, loading: false };
 
     case types.DELETE_BLOG_SUCCESS:
