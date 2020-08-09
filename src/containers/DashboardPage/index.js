@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from "react";
 import PublicNavbar from '../PublicNavbar/index'
 import { Row, Col } from 'react-bootstrap'
+import { useSelector } from 'react-redux'
 import DashboardContent from '../../components/DashboardContent'
 import './style.css'
+import NameEditModal from '../../components/NameEditModal'
+import UpdateAvatarModal from '../../components/UpdateAvatarModal'
 
 
 const DashboardPage = () => {
     const [page, setPage] = useState('dashboard')
+    const [showModalName, setShowModalName] = useState(false)
+    const [showModalAvatar, setShowModalAvatar] = useState(false)
+    const user = useSelector(state => state.auth.user)
     const handleOnClickDashboard = () => {
         setPage('dashboard')
     }
@@ -16,6 +22,14 @@ const DashboardPage = () => {
     const handleOnClickFriends = () => {
         setPage('friends')
     }
+    const handleOnClickName = () => {
+        setShowModalName(true)
+    }
+    const handleOnClickImage = () => {
+        console.log('handleOnClickImage')
+        setShowModalAvatar(true)
+
+    }
 
     useEffect(() => {
     }, [page])
@@ -23,12 +37,21 @@ const DashboardPage = () => {
     return (
         <div>
             <PublicNavbar />
-            <div className="dashboard-area border-red">
+            <div className="dashboard-area">
+                <NameEditModal
+                    showModal={showModalName}
+                    setShowModal={setShowModalName}
+                />
+                <UpdateAvatarModal
+                    showModal={showModalAvatar}
+                    setShowModal={setShowModalAvatar}
+                    img={user.avatar.url}
+                />
                 <Row>
-                    <Col className="dashboard-left-menu border-red" md={3}>
+                    <Col className="dashboard-left-menu" md={3}>
                         <div className="dashboard-user-area">
-                            <img className="dashboard-avatar" src="https://avatarfiles.alphacoders.com/117/117512.png" />
-                            <p className="dashboard-user">Dung DANG</p>
+                            <img className="dashboard-avatar" src={user.avatar.url} onClick={() => handleOnClickImage()} alt="" />
+                            <p className="dashboard-user" onClick={() => handleOnClickName()}>{user.name}</p>
                         </div>
                         <div className="dashboard-menu-area">
                             <Row className="dashboard-menu-item" onClick={() => handleOnClickDashboard()}>
