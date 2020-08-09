@@ -16,7 +16,7 @@ const PublicLayout = () => {
   return (
     <>
       <PublicNavbar />
-      <Container>
+      
         <AlertMsg />
         <Switch>
           <Route exact path="/" component={HomePage} />
@@ -29,7 +29,7 @@ const PublicLayout = () => {
 
           <Route path="*" component={NotFoundPage} />
         </Switch>
-      </Container>
+      
     </>
   );
 };

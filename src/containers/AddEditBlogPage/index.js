@@ -11,6 +11,7 @@ import {
 import { useHistory, useParams, Redirect } from "react-router-dom";
 import { blogActions } from "../../redux/actions/blog.actions";
 
+
 const AddEditBlogPage = () => {
   const [formData, setFormData] = useState({
     title: "",
@@ -59,75 +60,89 @@ const AddEditBlogPage = () => {
   if (redirectTo) return <Redirect to={redirectTo} />;
 
   return (
-    <Container>
-      <Row>
-        <Col md={{ span: 6, offset: 3 }}>
-          <Form onSubmit={handleSubmit}>
-            <div className="text-center mb-3">
-              <h1 className="text-primary">{addOrEdit} blog</h1>
-              <p className="lead">
-                <i className="fas fa-user" />
-              </p>
-            </div>
-            <Form.Group>
-              <Form.Control
-                type="text"
-                required
-                placeholder="Title"
-                name="title"
-                value={formData.title}
-                onChange={handleChange}
-              />
-            </Form.Group>
-            <Form.Group>
-              <Form.Control
-                as="textarea"
-                rows="10"
-                placeholder="Content"
-                name="content"
-                value={formData.content}
-                onChange={handleChange}
-              />
-            </Form.Group>
-            <ButtonGroup className="d-flex mb-3">
-              {loading ? (
-                <Button
-                  className="mr-3"
-                  variant="primary"
-                  type="button"
-                  disabled
-                >
-                  <span
-                    className="spinner-border spinner-border-sm"
-                    role="status"
-                    aria-hidden="true"
-                  ></span>
+    <div className="tien-page-edit" >
+
+      <div className="top"></div>
+      <div className="bottom"></div>
+      
+
+      <Col md={{ span: 6, offset: 3 }}>
+        <Form onSubmit={handleSubmit}>
+          <div className="text-center mb-3">
+            <h1 className="text-info tien-title-edit-page" >{addOrEdit} blog</h1>
+            <p className="lead">
+              <i className="fas fa-user" />
+            </p>
+          </div>
+          <Form.Group>
+            <Form.Control
+              className="tien-input-nen"
+              type="text"
+              required
+              placeholder="Title"
+              name="title"
+              value={formData.title}
+              onChange={handleChange}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Control
+              className="tien-input-nen"
+              as="textarea"
+              rows="10"
+              placeholder="Content"
+              name="content"
+              value={formData.content}
+              onChange={handleChange}
+            />
+          </Form.Group>
+          <ButtonGroup className="d-flex mb-3">
+            {loading ? (
+              <Button
+                className="mr-3"
+                variant="info"
+                type="button"
+                disabled
+              >
+                <span
+                  className="spinner-border spinner-border-sm"
+                  role="status"
+                  aria-hidden="true"
+                ></span>
                   Submitting...
-                </Button>
-              ) : (
-                <Button className="mr-3" type="submit" variant="primary">
+              </Button>
+            ) : (
+                <Button className="mr-3" type="submit" variant="info">
                   Submit
                 </Button>
               )}
-              <Button variant="light" onClick={handleCancel} disabled={loading}>
-                Cancel
+            <Button variant="light" onClick={handleCancel} disabled={loading}>
+              Cancel
               </Button>
-            </ButtonGroup>
-            {addOrEdit === "Edit" && (
-              <ButtonGroup className="d-flex">
-                <Button
+          </ButtonGroup>
+          {addOrEdit === "Edit" && (
+            <ButtonGroup className="d-flex justify-content-center" style={{ width: "500px" }}>
+              <img
+                style={{marginBottom:"10px"}}
+                onClick={handleDelete}
+                disabled={loading}
+                src="https://blog.philmorehost.com/wp-content/uploads/2019/01/delete.png" width={50} height={50} />
+              {/* <Button
                   variant="danger"
                   onClick={handleDelete}
                   disabled={loading}
                 >
                   Delete Blog
-                </Button>
-              </ButtonGroup>
-            )}
-          </Form>
-        </Col>
-      </Row>
-    </Container>
+                </Button> */}
+            </ButtonGroup>
+          )}
+        </Form>
+      </Col>
+      
+
+
+
+    </div>
   );
 };
 

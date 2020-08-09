@@ -32,49 +32,40 @@ const LoginPage = () => {
 
   if (isAuthenticated) return <Redirect to="/" />;
   return (
-    <Container>
-      <Row>
-        <Col md={{ span: 6, offset: 3 }}>
+    <Container className="tien-container">
+      <div className="top"></div>
+      <div className="bottom"></div>
+      <div className="center" >
+        <h2>Please Sign In</h2>
+        
           <Form onSubmit={handleSubmit}>
-            <div className="text-center mb-3">
-              <h1 className="text-primary">Sign In</h1>
-              <p className="lead">
-                <i className="fas fa-user" /> Sign Into Your Account
-              </p>
-            </div>
-            <Form.Group>
-              <Form.Control
-                type="email"
-                required
-                placeholder="Email Address"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-              />
-              {errors.email && (
-                <small className="form-text text-danger">{errors.email}</small>
-              )}
-            </Form.Group>
-            <Form.Group>
-              <Form.Control
-                type="password"
-                placeholder="Password"
-                name="password"
-                value={formData.password}
-                onChange={handleChange}
-                minLength="3"
-              />
-              {errors.password && (
-                <small className="form-text text-danger">
-                  {errors.password}
-                </small>
-              )}
-            </Form.Group>
+
+            <input
+              className="tien-input"
+              type="email"
+              placeholder="email"
+              required
+              placeholder="Email Address"
+              name="email"
+              value={formData.email}
+              onChange={handleChange} />
+            {errors.email && (
+              <small className="form-text text-danger">{errors.email}</small>
+            )}
+
+            <input
+              className="tien-input"
+              type="password"
+              placeholder="Password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              minLength="3" />
 
             {loading ? (
               <Button
                 className="btn-block"
-                variant="primary"
+                variant="info"
                 type="button"
                 disabled
               >
@@ -86,17 +77,22 @@ const LoginPage = () => {
                 Loading...
               </Button>
             ) : (
-              <Button className="btn-block" type="submit" variant="primary">
-                Login
-              </Button>
-            )}
-            <p>
+              <div>
+                <Button className="btn-block" type="submit" variant="info">
+                  Login
+                </Button>
+                </div>
+              )}
+            <p className="d-flex justify-content-center">
               Don't have an account? <Link to="/register">Sign Up</Link>
             </p>
-          </Form>
-        </Col>
-      </Row>
-    </Container>
+
+          
+        </Form>
+      </div>
+      
+      </Container >
+
   );
 };
 

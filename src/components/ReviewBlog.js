@@ -8,11 +8,11 @@ const ReviewBlog = ({
   loading,
 }) => {
   return (
-    <Form onSubmit={handleSubmitReview}>
-      <Form.Group as={Row}>
-        <Form.Label htmlFor="review" column sm="2">
-          Review:
-        </Form.Label>
+    <Form onSubmit={handleSubmitReview} >
+      <Form.Group as={Row} className="tien-review-bottom-style">
+        <h3 htmlFor="review" column sm="1">
+          Comment:
+        </h3>
         <Col sm="8">
           <Form.Control
             id="review"
@@ -22,7 +22,7 @@ const ReviewBlog = ({
           />
         </Col>
         {loading ? (
-          <Button variant="primary" type="button" disabled>
+          <Button variant="info" type="button" disabled>
             <span
               className="spinner-border spinner-border-sm"
               role="status"
@@ -31,7 +31,7 @@ const ReviewBlog = ({
             Submitting...
           </Button>
         ) : (
-          <Button type="submit" disabled={!reviewText}>
+          <Button type="submit" variant="info" disabled={!reviewText}>
             Submit
           </Button>
         )}

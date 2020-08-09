@@ -46,100 +46,97 @@ const RegisterPage = () => {
   };
 
   return (
-    <Container>
-      <Row>
-        <Col md={{ span: 6, offset: 3 }}>
-          <div className="text-center mb-3">
-            <h1 className="text-primary">Sign Up</h1>
-            <p className="lead">
-              <i className="fas fa-user" /> Create Your Account
-            </p>
-          </div>
-          <Form onSubmit={handleSubmit}>
-            <Form.Group>
-              <Form.Control
-                type="text"
-                placeholder="Name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-              />
-              {errors.name && (
-                <small className="form-text text-danger">{errors.name}</small>
-              )}
-            </Form.Group>
-            <Form.Group>
-              <Form.Control
-                type="email"
-                placeholder="Email Address"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-              />
-              {errors.email && (
-                <small className="form-text text-danger">{errors.email}</small>
-              )}
-            </Form.Group>
-            <Form.Group>
-              <Form.Control
-                type="password"
-                placeholder="Password"
-                name="password"
-                value={formData.password}
-                onChange={handleChange}
-              />
-              {errors.password && (
-                <small className="form-text text-danger">
-                  {errors.password}
-                </small>
-              )}
-            </Form.Group>
-            <Form.Group>
-              <Form.Control
-                type="password"
-                placeholder="Confirm Password"
-                name="password2"
-                value={formData.password2}
-                onChange={handleChange}
-              />
-            </Form.Group>
-            {loading ? (
-              <Button
-                className="btn-block"
-                variant="primary"
-                type="button"
-                disabled
-              >
-                <span
-                  className="spinner-border spinner-border-sm"
-                  role="status"
-                  aria-hidden="true"
-                ></span>
+    <Container className="tien-container">
+
+      <div className="top"></div>
+      <div className="bottom"></div>
+      <div className="center">
+        <h2>Sign Up</h2>
+        <h5>Create Your Account</h5>
+        <Form onSubmit={handleSubmit}>
+          <input
+            className="tien-input"
+            type="text"
+            placeholder="Name"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            
+          />
+          {errors.name && (
+              <small className="form-text text-danger">{errors.name}</small>
+            )}
+          <input
+            className="tien-input"
+            type="email"
+            placeholder="Email Address"
+            name="email"
+            value={formData.email}
+            onChange={handleChange} 
+            
+            />
+          <input
+            className="tien-input"
+            type="password"
+            placeholder="Password"
+            name="password1"
+            value={formData.password1}
+            onChange={handleChange} 
+            
+            />
+            {errors.password && (
+              <small className="form-text text-danger">
+                {errors.password}
+              </small>
+            )}
+          <input
+          className="tien-input"
+          type="password"
+          placeholder="Confirm Password"
+          name="password2"
+          value={formData.password2}
+          onChange={handleChange}
+          
+        />
+        {loading ? (
+            <Button
+              className="btn-block"
+              variant="info"
+              type="button"
+              disabled
+            >
+              <span
+                className="spinner-border spinner-border-sm"
+                role="status"
+                aria-hidden="true"
+              ></span>
                 Loading...
-              </Button>
-            ) : (
-              <Button className="btn-block" type="submit" variant="primary">
+            </Button>
+          ) : (
+              <Button className="btn-block" type="submit" variant="info">
                 Register
               </Button>
             )}
 
-            {/* TODO: remove fake data */}
-            <Button
-              className="btn-block"
-              type="button"
-              variant="light"
-              onClick={fillFakeData}
-            >
-              Fill in fake data
+          {/* TODO: remove fake data */}
+          <Button
+            className="btn-block"
+            type="button"
+            variant="light"
+            onClick={fillFakeData}
+            
+          >
+            Fill in fake data
             </Button>
 
-            <p>
-              Already have an account? <Link to="/login">Sign In</Link>
-            </p>
-          </Form>
-        </Col>
-      </Row>
+          <p style={{textAlign:"center"}}>
+            Already have an account? <Link to="/login">Sign In</Link>
+          </p>
+          
+        </Form>
+      </div>
     </Container>
+    
   );
 };
 

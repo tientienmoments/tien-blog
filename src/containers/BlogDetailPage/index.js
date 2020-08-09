@@ -4,11 +4,12 @@ import { useSelector, useDispatch } from "react-redux";
 import { blogActions } from "../../redux/actions";
 import Markdown from "react-markdown";
 import Moment from "react-moment";
-import { Button } from "react-bootstrap";
+import { Button, Col, Row, Container } from "react-bootstrap";
 
 import ClipLoader from "react-spinners/ClipLoader";
 import ReviewBlog from "../../components/ReviewBlog";
 import ReviewList from "../../components/ReviewList";
+import { HTML5_FMT } from "moment";
 
 const BlogDetailPage = () => {
     const params = useParams();
@@ -23,8 +24,8 @@ const BlogDetailPage = () => {
     const currentUser = useSelector((state) => state.auth.user);
     const [reviewText, setReviewText] = useState("");
 
-    
-    
+
+
 
     const handleInputChange = (e) => {
         setReviewText(e.target.value);
@@ -47,37 +48,51 @@ const BlogDetailPage = () => {
             {loading ? (
                 <ClipLoader color="#f86c6b" size={150} loading={loading} />
             ) : (
-                    <>
-                        {blog && (
-                            <div className="mb-5">
-                                <h1>{blog.title}</h1>
+                    <Container>
+                        <div className="tien-detail-page">
+                            <div className="tien-detail-page-top"></div>
+                            <div className="tien-detail-page-bottom"></div>
+                            <div className="tien-detail-style ">
+                                {blog && (
+                                    <Col className="mb-5">
+                                        <Row className="tien-blog-detail-title">
+                                            <div>{blog.title}</div>
+                                        </Row>
 
-                                {currentUser?._id === blog?.user?._id ? (
-                                    <Link to={`/blog/edit/${blog._id}`}>
-                                        <Button variant="primary">Edit</Button>
-                                    </Link>
-                                ) : (
-                                        <span className="text-muted">
-                                            @{blog?.user?.name} wrote{" "}
-                                            <Moment fromNow>{blog.createdAt}</Moment>
-                                        </span>
-                                    )}
-                                <hr />
-                                <Markdown source={blog.content} />
-                                <hr />
-                                <ReviewList reviews={blog.reviews} />
+                                        {currentUser?._id === blog?.user?._id ? (
+
+                                            <Link to={`/blog/edit/${blog._id}`}>
+                                                <Row className="tien-edit-button-line">
+                                                    <Button style={{ margin: "0px" }} variant="info">Edit</Button>
+                                                </Row>
+                                            </Link>
+
+                                        ) : (
+                                                <p className="d-flex justify-content-center text-muted" style={{fontSize:"18px"}}>
+                                                    @{blog?.user?.name} wrote {" "}
+                                                  <Moment fromNow><span> {blog.createdAt}</span></Moment>
+                                                </p>
+                                            )}
+                                        <hr />
+                                        <div className="tien-detail-content">
+                                            <Markdown className="tien-source-style" source={blog.content} />
+                                        </div>
+                                        <hr />
+                                        <ReviewList reviews={blog.reviews} />
+                                    </Col>
+                                )}
+
+                                {isAuthenticated && (
+                                    <ReviewBlog
+                                        reviewText={reviewText}
+                                        handleInputChange={handleInputChange}
+                                        handleSubmitReview={handleSubmitReview}
+                                        loading={submitReviewLoading}
+                                    />
+                                )}
                             </div>
-                        )}
-
-                        {isAuthenticated && (
-                            <ReviewBlog
-                                reviewText={reviewText}
-                                handleInputChange={handleInputChange}
-                                handleSubmitReview={handleSubmitReview}
-                                loading={submitReviewLoading}
-                            />
-                        )}
-                    </>
+                        </div>
+                    </Container>
                 )}
         </>
     );
