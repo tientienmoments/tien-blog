@@ -1,7 +1,6 @@
 import React from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import logo from "../../images/logo.svg";
 import { useSelector, useDispatch } from "react-redux";
 import { authActions } from "../../redux/actions/auth.actions"
 

@@ -8,9 +8,9 @@ const AlertMsg = () => {
     alerts !== null &&
     alerts.length > 0 &&
     alerts.map((alert) => (
-      <Container>
+      <Container className="d-flex justify-content-center">
       <Alert key={alert.id} variant={alert.alertType}>
-        {alert.msg}
+        <h1 style={{fontSize:"60px"}}>{alert.msg}</h1>
       </Alert>
       </Container>
     ))

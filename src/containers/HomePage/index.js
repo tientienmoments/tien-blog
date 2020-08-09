@@ -169,7 +169,7 @@ const HomePage = () => {
                 <div className="right">
                   <h1 style={{ fontSize: "50px" }}>CAMPING IN ANTARCTICA</h1>
                   <div className="author"><img src="https://randomuser.me/api/portraits/men/95.jpg" />
-                    <h2 className="tien-author-style text-mute">@Stefano</h2>
+                    <h2 className="tien-author-style text-muted">@tientien</h2>
                   </div>
                   <div className="separator"></div>
                   <p>Did we get to sleep in tents like these? No way! These luxurious beauties were filled with our emergency...</p>

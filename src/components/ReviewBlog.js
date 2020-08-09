@@ -10,7 +10,7 @@ const ReviewBlog = ({
   return (
     <Form onSubmit={handleSubmitReview} >
       <Form.Group as={Row} className="tien-review-bottom-style">
-        <h3 htmlFor="review" column sm="1">
+        <h3 htmlFor="review" column sm="1" style={{marginLeft:"20px"}}>
           Comment:
         </h3>
         <Col sm="8">
@@ -31,7 +31,7 @@ const ReviewBlog = ({
             Submitting...
           </Button>
         ) : (
-          <Button type="submit" variant="info" disabled={!reviewText}>
+          <Button type="submit" variant="info" disabled={!reviewText} style={{marginRight:"20px"}}>
             Submit
           </Button>
         )}

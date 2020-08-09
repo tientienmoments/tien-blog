@@ -69,8 +69,8 @@ const BlogDetailPage = () => {
 
                                         ) : (
                                                 <p className="d-flex justify-content-center text-muted" style={{fontSize:"18px"}}>
-                                                    @{blog?.user?.name} wrote {" "}
-                                                  <Moment fromNow><span> {blog.createdAt}</span></Moment>
+                                                    @{blog?.user?.name} <span style={{marginLeft:"5px", marginRight:"5px"}}> wrote </span>
+                                                  <Moment fromNow><span> {blog.createdAt} </span></Moment>
                                                 </p>
                                             )}
                                         <hr />
