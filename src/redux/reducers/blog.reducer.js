@@ -27,11 +27,12 @@ const blogReducer = (state = initialState, action) => {
     case types.BLOG_REQUEST_FAILURE:
     case types.GET_SINGLE_BLOG_REQUEST_FAILURE:
     case types.CREATE_BLOG_FAILURE:
-    case types.CREATE_BLOG_SUCCESS:
+    
     case types.UPDATE_BLOG_FAILURE:
     case types.DELETE_BLOG_FAILURE:
       return { ...state, loading: false };
-
+    case types.CREATE_BLOG_SUCCESS:
+      return { ...state, loading: false, redirectTo:"/" };
     case types.DELETE_BLOG_SUCCESS:
       return { ...state, loading: false, selectedBlog: {}, redirectTo: "/" };
 

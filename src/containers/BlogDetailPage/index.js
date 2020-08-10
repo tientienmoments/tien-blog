@@ -9,7 +9,7 @@ import { Button, Col, Row, Container } from "react-bootstrap";
 import ClipLoader from "react-spinners/ClipLoader";
 import ReviewBlog from "../../components/ReviewBlog";
 import ReviewList from "../../components/ReviewList";
-import { HTML5_FMT } from "moment";
+
 
 const BlogDetailPage = () => {
     const params = useParams();

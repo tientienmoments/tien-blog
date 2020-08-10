@@ -548,7 +548,7 @@ margin-top: 30px;
   transform: translateX(0);
   border-style: solid;
   border-width: 0 100vw 120vw 100vw;
-  border-color: transparent transparent #adc5cfdc transparent;
+  border-color: transparent transparent #D5CABD transparent;
 }
 
 .sand {
@@ -735,9 +735,8 @@ margin-top: 30px;
   position: absolute;
   z-index:6;
   justify-content: center;
-  width: 800px;
-  height: 500px;
+  width: 1000px;
+  height: 700px;
   align-items: center;
-  border-radius: 50%;
 }
 
