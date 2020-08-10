@@ -5,8 +5,10 @@ import { alertActions } from "./alert.actions";
 const loginRequest = (email, password) => async (dispatch) => {
   dispatch({ type: types.LOGIN_REQUEST, payload: null });
   try {
+    
     const res = await api.post("/auth/login", { email, password });
     const name = res.data.data.name;
+    api.defaults.headers.common["authorization"] = "Bearer "+ res.data.data.accessToken; 
     dispatch(alertActions.setAlert(`Welcome back, ${name}`, "success"));
     dispatch({ type: types.LOGIN_SUCCESS, payload: res.data });
   } catch (error) {
