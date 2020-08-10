@@ -46,8 +46,15 @@ const RegisterPage = () => {
   };
 
   return (
-    <Container className="tien-container">
+    // <div className="tien-fix-width">
+    //   <div className="tien-container">
+    //   <div className="top"></div>
+    //   <div className="bottom"></div>
+    //   <div className="center" >
 
+    // <Container className="tien-container">
+    <div className="tien-fix-width">
+      <div className="tien-container">
       <div className="top"></div>
       <div className="bottom"></div>
       <div className="center">
@@ -61,44 +68,44 @@ const RegisterPage = () => {
             name="name"
             value={formData.name}
             onChange={handleChange}
-            
+
           />
           {errors.name && (
-              <small className="form-text text-danger">{errors.name}</small>
-            )}
+            <small className="form-text text-danger">{errors.name}</small>
+          )}
           <input
             className="tien-input"
             type="email"
             placeholder="Email Address"
             name="email"
             value={formData.email}
-            onChange={handleChange} 
-            
-            />
+            onChange={handleChange}
+
+          />
           <input
             className="tien-input"
             type="password"
             placeholder="Password"
             name="password1"
             value={formData.password1}
-            onChange={handleChange} 
-            
-            />
-            {errors.password && (
-              <small className="form-text text-danger">
-                {errors.password}
-              </small>
-            )}
+            onChange={handleChange}
+
+          />
+          {errors.password && (
+            <small className="form-text text-danger">
+              {errors.password}
+            </small>
+          )}
           <input
-          className="tien-input"
-          type="password"
-          placeholder="Confirm Password"
-          name="password2"
-          value={formData.password2}
-          onChange={handleChange}
-          
-        />
-        {loading ? (
+            className="tien-input"
+            type="password"
+            placeholder="Confirm Password"
+            name="password2"
+            value={formData.password2}
+            onChange={handleChange}
+
+          />
+          {loading ? (
             <Button
               className="btn-block"
               variant="info"
@@ -124,19 +131,19 @@ const RegisterPage = () => {
             type="button"
             variant="light"
             onClick={fillFakeData}
-            
+
           >
             Fill in fake data
             </Button>
 
-          <p style={{textAlign:"center"}}>
+          <p style={{ textAlign: "center" }}>
             Already have an account? <Link to="/login">Sign In</Link>
           </p>
-          
+
         </Form>
       </div>
-    </Container>
-    
+    </div>
+    </div>
   );
 };
 

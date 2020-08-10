@@ -35,21 +35,21 @@ const PublicNavbar = () => {
 
   return (
     <div className="tien-nav-top">
-      <div className="tien-nav-style" >
 
-        <Navbar.Brand as={Link} to="/" className="wrapper"  >
+        <div className="tien-nav-style" >
 
-          <h1 data-heading="BLOG">BLOG</h1>
+          <Navbar.Brand as={Link} to="/" className="wrapper"  >
 
-        </Navbar.Brand>
-        <div className="menu"  >
-          <ul>
-            {!loading && <>{isAuthenticated ? authLinks : publicLinks}</>}
-          </ul>
+            <h1 data-heading="BLOG">BLOG</h1>
+
+          </Navbar.Brand>
+          <div className="menu"  >
+            <ul>
+              {!loading && <>{isAuthenticated ? authLinks : publicLinks}</>}
+            </ul>
+          </div>
         </div>
-
-      </div>
-    </div>
+</div>
   );
 };
 

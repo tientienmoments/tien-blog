@@ -32,7 +32,9 @@ const LoginPage = () => {
 
   if (isAuthenticated) return <Redirect to="/" />;
   return (
-    <Container className="tien-container">
+    
+    <div className="tien-fix-width">
+      <div className="tien-container">
       <div className="top"></div>
       <div className="bottom"></div>
       <div className="center" >
@@ -90,8 +92,8 @@ const LoginPage = () => {
           
         </Form>
       </div>
-      
-      </Container >
+      </div>
+      </div >
 
   );
 };
