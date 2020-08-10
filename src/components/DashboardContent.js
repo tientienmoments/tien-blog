@@ -3,8 +3,9 @@ import { dashboardAction } from '../redux/actions'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Row, Col, Card, Button } from 'react-bootstrap'
+import './DashboardContent.css'
 
-export default function DashboardContent({ page }) {
+export default function DashboardContent({ page, userId }) {
     const dispatch = useDispatch();
     const [pageDashboard, setPageDashboard] = useState(page)
     const loading = useSelector((state) => state.dashboard.loading)
@@ -16,12 +17,12 @@ export default function DashboardContent({ page }) {
     const loadContent = (page) => {
         switch (page) {
             case "dashboard":
-                dispatch(dashboardAction.blogsRequest())
+                dispatch(dashboardAction.blogsRequest(userId))
                 dispatch(dashboardAction.getCurrentUser())
                 setPageDashboard(page)
                 break;
             case "blogs":
-                dispatch(dashboardAction.blogsRequest())
+                dispatch(dashboardAction.blogsRequest(userId))
                 setPageDashboard(page)
                 break;
             case "friends":
@@ -53,27 +54,29 @@ export default function DashboardContent({ page }) {
                 </div>
                 : page === 'blogs' ?
                     <div>
-                        <h1>Blogs Here</h1>
-                        {blogs.length ? blogs.map(blog => {
-                            return (
-                                <Card>
-                                    <Card.Body>
-                                        <Card.Title>{blog.title}</Card.Title>
-                                        <Card.Text>
-                                            {blog.content.length < 100 ? blog.content : blog.content.slice(0, 97) + '...'}
-                                        </Card.Text>
-                                        <Link to={`/blog/edit/${blog._id}`}>
-                                            <Button variant="primary">Edit</Button>
-                                        </Link>
-                                    </Card.Body>
-                                </Card>
-                            )
-                        }) :
-                            <p>There is no blog</p>}
+                        <h1>Blogs</h1>
+                        <div className="dashboard-blog-area">
+                            {blogs.length ? blogs.map(blog => {
+                                return (
+                                    <Card>
+                                        <Card.Body>
+                                            <Card.Title>{blog.title}</Card.Title>
+                                            <Card.Text>
+                                                {blog.content.length < 100 ? blog.content : blog.content.slice(0, 97) + '...'}
+                                            </Card.Text>
+                                            <Link to={`/blog/edit/${blog._id}`}>
+                                                <Button variant="primary">Edit</Button>
+                                            </Link>
+                                        </Card.Body>
+                                    </Card>
+                                )
+                            }) :
+                                <p>There is no blog</p>}
+                        </div>
                     </div>
                     :
                     <div>
-                        <h1>Friend Here</h1>
+                        <h1>Friends</h1>
                         {friends.length ?
                             <p>Avatar | Name </p>
                             : <p>You have no friends</p>}

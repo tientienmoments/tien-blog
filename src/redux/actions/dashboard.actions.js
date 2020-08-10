@@ -2,11 +2,11 @@ import * as types from "../constants/dashboard.constants";
 import api from "../api";
 import { alertActions } from "./alert.actions";
 
-const blogsRequest = () => async (dispatch) => {
+const blogsRequest = (idUser) => async (dispatch) => {
     console.log('blogsRequest')
     dispatch({ type: types.BLOG_REQUEST, payload: null });
     try {
-        const res = await api.get("/blogs?limit=1000&page=1");
+        const res = await api.get(`/users/${idUser}/blogs?limit=1000&page=1`);
         console.log('blogsRequest.res.data.:', res.data)
         dispatch({ type: types.BLOG_REQUEST_SUCCESS, payload: { blogs: res.data.data, total_blogs: res.data.results } });
     } catch (error) {

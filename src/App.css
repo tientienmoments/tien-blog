@@ -283,6 +283,12 @@
     box-shadow: 10px 10px 60px 0px rgba(0, 0, 0, 0.75);
     overflow: hidden;
   }
+  .thumbnail:hover{
+    cursor: pointer;
+  }
+  .tien-title-card:hover{
+    cursor: pointer;
+  }
   
   /*object-fit: cover; */
   /*object-position: center; */

@@ -1,0 +1,12 @@
+.avatar-body-area{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.modal-avatar{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}

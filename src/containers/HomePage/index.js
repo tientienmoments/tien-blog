@@ -1,13 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Container, CardColumns, Jumbotron, Button, Row } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { blogActions } from "../../redux/actions";
 import BlogCard from "../../components/BlogCard";
 import ClipLoader from "react-spinners/ClipLoader";
 import { useHistory, Link } from "react-router-dom";
+import PaginationHomePage from '../../components/PaginationHomePage'
 
 const HomePage = () => {
   const dispatch = useDispatch();
+  const [pageNum, setPageNum] = useState(1)
   const loading = useSelector((state) => state.blog.loading);
   const blogs = useSelector((state) => state.blog.blogs);
   console.log("checking blogs exit?", blogs)
@@ -20,7 +22,7 @@ const HomePage = () => {
 
   console.log(blogs);
   useEffect(() => {
-    dispatch(blogActions.blogsRequest());
+    dispatch(blogActions.blogsRequest(pageNum));
   }, [dispatch]);
 
   return (
@@ -104,7 +106,7 @@ const HomePage = () => {
         <ClipLoader color="#f86c6b" size={150} loading={loading} />
       ) : (
           <>
-            <Container>
+            {/* <Container>
               <div className="tien-card">
                 <div className="thumbnail"><img class="left" src="https://cdn.kimkim.com/files/a/content_articles/featured_photos/897c1fab01ff5ebb3a4b370d52efac89f6c83f37/big-c6fe29388e86817077d33f3bdbba7ed8.jpg" /></div>
                 <div className="right">
@@ -193,10 +195,7 @@ const HomePage = () => {
                   <div>March</div>
                 </div>
               </div>
-            </Container>
-
-
-
+            </Container> */}
 
             {blogs.length ? (
               <Container>
@@ -213,6 +212,7 @@ const HomePage = () => {
             ) : (
                 <p>There are no blogs.</p>
               )}
+            <PaginationHomePage />
           </>
         )}
 

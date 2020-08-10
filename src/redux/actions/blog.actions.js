@@ -1,12 +1,15 @@
 import * as types from "../constants/blog.constants";
 import api from "../api";
 import { alertActions } from "./alert.actions";
+// const LIMIT = 5;
 
-const blogsRequest = () => async (dispatch) => {
+const blogsRequest = (page) => async (dispatch) => {
   dispatch({ type: types.BLOG_REQUEST, payload: null });
   try {
-    const res = await api.get("/blogs");
-    dispatch({ type: types.BLOG_REQUEST_SUCCESS, payload: res.data.data });
+    const resTotal = await api.get(`/blogs?limit=1000&page=1`);
+    const totalResults = resTotal.data.results
+    const res = await api.get(`/blogs?limit=${types.LIMIT_PER_PAGE}&page=${page}`);
+    dispatch({ type: types.BLOG_REQUEST_SUCCESS, payload: { blogs: res.data.data, totalResults, pageNum: page } });
   } catch (error) {
     dispatch({ type: types.BLOG_REQUEST_FAILURE, payload: error });
   }
@@ -89,6 +92,19 @@ const deleteBlog = (blogId) => async (dispatch) => {
   }
 };
 
+const updateReaction = (targetType, target, reaction, accessToken) => async (dispatch) => {
+  dispatch({ type: types.UPDATE_REACTION_REQUEST, payload: null })
+  if (accessToken) {
+    const bearerToken = "Bearer " + accessToken;
+    api.defaults.headers.common["authorization"] = bearerToken;
+  }
+  try {
+    const res = await api.post('/reaction', { targetType, target, reaction })
+    dispatch({ type: types.UPDATE_REACTION_SUCCESS, payload: res.data.reaction })
+  } catch (error) {
+    dispatch({ type: types.UPDATE_REACTION_FAILURE, payload: error })
+  }
+}
 export const blogActions = {
   blogsRequest,
   getSingleBlog,
@@ -96,4 +112,5 @@ export const blogActions = {
   createNewBlog,
   updateBlog,
   deleteBlog,
+  updateReaction,
 };
