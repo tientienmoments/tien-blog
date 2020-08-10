@@ -14,6 +14,7 @@ const authReducer = (state = initialState, action) => {
     case types.REGISTER_REQUEST:
     case types.GET_CURRENT_USER_REQUEST:
     case types.UPDATE_USER_REQUEST:
+    case types.UPLOAD_AVATAR_REQUEST:
       return { ...state, loading: true };
     case types.LOGIN_SUCCESS:
       localStorage.setItem("accessToken", payload.accessToken);
@@ -28,6 +29,7 @@ const authReducer = (state = initialState, action) => {
     case types.REGISTER_FAILURE:
     case types.GET_CURRENT_USER_FAILURE:
     case types.UPDATE_USER_FAILURE:
+    case types.UPLOAD_AVATAR_FAILURE:
       return { ...state, loading: false };
     case types.REGISTER_SUCCESS:
       return {
@@ -54,7 +56,18 @@ const authReducer = (state = initialState, action) => {
       return {
         ...state,
         user: payload,
+        loading: false,
       }
+    case types.UPLOAD_AVATAR_SUCCESS:
+      {
+        // console.log('payload.avatar.url:', payload)
+        // console.log('state.user.avatar.url:', state.user.avatar.url)
+        state.user.avatar.url = payload.url
+        return {
+          ...state, loading: false,
+        }
+      }
+
     default:
       return state;
   }

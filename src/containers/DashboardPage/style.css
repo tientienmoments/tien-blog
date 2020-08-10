@@ -19,7 +19,15 @@
     height: 50px;
     border-radius: 50%;
 }
+.dashboard-avatar:hover {
+    cursor: pointer;
+}
+.dashboard-user:hover{
+    cursor: pointer;
+}
+
 .dashboard-user{ 
+    margin-top: 10px;
     /* text-transform: uppercase; */
     color: white;
 }
@@ -31,9 +39,13 @@
 .dashboard-menu-item{
     cursor: pointer;
     margin-top: 10px;
+    padding: 0px 10px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
-/* .dashboard-menu-item:hover{
-    border: 1px solid red;
-} */
+.dashboard-menu-item:hover{
+    /* border: 1px solid red; */
+    background-color: #f2bfc7;
+}
 
 

@@ -21,7 +21,6 @@ const blogReducer = (state = initialState, action) => {
       return { ...state, loading: true };
 
     case types.BLOG_REQUEST_SUCCESS:
-      console.log('BLOG_REQUEST_SUCCESS.payload:', payload)
       return { ...state, blogs: payload.blogs, pageNum: payload.pageNum, totalResults: payload.totalResults, loading: false };
 
     case types.UPDATE_BLOG_SUCCESS:
@@ -31,13 +30,13 @@ const blogReducer = (state = initialState, action) => {
     case types.BLOG_REQUEST_FAILURE:
     case types.GET_SINGLE_BLOG_REQUEST_FAILURE:
     case types.CREATE_BLOG_FAILURE:
-    
+
     case types.UPDATE_BLOG_FAILURE:
     case types.DELETE_BLOG_FAILURE:
     case types.UPDATE_REACTION_FAILURE:
       return { ...state, loading: false };
     case types.CREATE_BLOG_SUCCESS:
-      return { ...state, loading: false, redirectTo:"/" };
+      return { ...state, loading: false, redirectTo: "/" };
     case types.DELETE_BLOG_SUCCESS:
       return { ...state, loading: false, selectedBlog: {}, redirectTo: "/" };
 
@@ -56,9 +55,17 @@ const blogReducer = (state = initialState, action) => {
 
     case types.CREATE_REVIEW_FAILURE:
       return { ...state, submitReviewLoading: false };
+    case types.UPDATE_REACTION_SUCCESS:
+      state.blogs.map(blog => {
+        if (blog._id === payload.target) {
+          blog.reactions[payload.reaction]++
+        }
+      })
+      return { ...state, loading: false }
     default:
       return state;
   }
 };
+
 
 export default blogReducer;

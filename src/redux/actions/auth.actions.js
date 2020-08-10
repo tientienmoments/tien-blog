@@ -64,7 +64,6 @@ const uploadAvatar = (file) => async (dispatch) => {
     formData.append('avatarUpload', file);
     const res = await api.post("/users/me/avatar", formData);
     console.log('res.data:', res.data)
-
     dispatch({
       type: types.UPLOAD_AVATAR_SUCCESS,
       payload: res.data.data,

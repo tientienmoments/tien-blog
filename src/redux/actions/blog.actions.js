@@ -100,7 +100,7 @@ const updateReaction = (targetType, target, reaction, accessToken) => async (dis
   }
   try {
     const res = await api.post('/reaction', { targetType, target, reaction })
-    dispatch({ type: types.UPDATE_REACTION_SUCCESS, payload: res.data.reaction })
+    dispatch({ type: types.UPDATE_REACTION_SUCCESS, payload: { reaction: res.data.data.reaction, target } })
   } catch (error) {
     dispatch({ type: types.UPDATE_REACTION_FAILURE, payload: error })
   }

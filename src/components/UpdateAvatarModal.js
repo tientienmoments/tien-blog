@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import { Modal, Button } from 'react-bootstrap'
 import { authActions } from '../redux/actions'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import './UpdateAvatarModal.css'
 
 export default function UpdateAvatarModal({ showModal, setShowModal, img }) {
+    const loading = useSelector(state => state.auth.loading)
     const dispatch = useDispatch()
     const [url, setUrl] = useState(img)
     const [selectedFile, setSelectedFile] = useState(null)
@@ -13,9 +14,13 @@ export default function UpdateAvatarModal({ showModal, setShowModal, img }) {
         setShowModal(false)
     }
     const handleChangeImage = (e) => {
-        console.log('handleChangeImage:', e.target.files[0])
         var tmppath = URL.createObjectURL(e.target.files[0]);
+        // var reader = new FileReader();
+        // var url = reader.readAsDataURL(e.target.files[0]);
+        // console.log(url) // Would see a path?
+        // console.log('url:', url)
         console.log('tmppath:', tmppath)
+        setUrl(tmppath)
         setSelectedFile(e.target.files[0])
     }
     return (

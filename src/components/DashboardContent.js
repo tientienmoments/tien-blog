@@ -8,7 +8,6 @@ import './DashboardContent.css'
 export default function DashboardContent({ page, userId }) {
     const dispatch = useDispatch();
     const [pageDashboard, setPageDashboard] = useState(page)
-    const loading = useSelector((state) => state.dashboard.loading)
     const blogs = useSelector((state) => state.dashboard.blogs)
     const friends = useSelector((state) => state.dashboard.friends)
     const total_blogs = useSelector((state) => state.dashboard.total_blogs)
