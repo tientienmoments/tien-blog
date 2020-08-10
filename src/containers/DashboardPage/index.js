@@ -38,7 +38,10 @@ const DashboardPage = () => {
         <div>
             <PublicNavbar />
             {loading ? (
+                <div style={{ display: "flex", justifyContent: "center", height: "100vh", alignItems: "center" }}>
                 <ClipLoader color="#f86c6b" size={150} loading={loading} />
+            </div>
+                // <ClipLoader color="#f86c6b" size={150} loading={loading} />
             ) :
                 <div className="dashboard-area">
                     <NameEditModal

@@ -103,7 +103,7 @@ const HomePage = () => {
         </Jumbotron>}
 
       {loading ? (
-        <ClipLoader color="#f86c6b" size={150} loading={loading} />
+        <Row className="d-flex justify-content-center flex-direction-row" style={{width:"100%"}}><ClipLoader color="#f86c6b" size={150} loading={loading} /></Row>
       ) : (
           <>
             
