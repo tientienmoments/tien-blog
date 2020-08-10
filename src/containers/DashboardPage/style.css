@@ -1,9 +1,10 @@
 .dashboard-area{
-    height: 90vh;
+    margin-top: 50px;
+    height: 85vh;
 }
 .dashboard-left-menu{
-    height: 90vh;
-    background-color: #191919;
+    height: 85vh;
+    background-color: #cf7b7b;
     color: white;
 }
 .dashboard-user-area{
@@ -31,8 +32,8 @@
     cursor: pointer;
     margin-top: 10px;
 }
-.dashboard-menu-item:hover{
+/* .dashboard-menu-item:hover{
     border: 1px solid red;
-}
+} */
 
 

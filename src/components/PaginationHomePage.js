@@ -12,8 +12,6 @@ const PaginationHomePage = () => {
     let totalPageNum = 0
     if ((totalResults % LIMIT) > 0) totalPageNum = Math.floor(totalResults / LIMIT) + 1
     else totalPageNum = Math.floor(totalResults / LIMIT)
-    console.log('pageNum:', pageNum)
-    console.log('totalResults:', totalResults)
 
     const handleClickOnFirst = () => {
         // setPageNum(1)

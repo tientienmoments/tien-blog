@@ -1,0 +1,7 @@
+.dashboard-blog-area{
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+    overflow: scroll;
+    height: 470px;
+}

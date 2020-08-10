@@ -28,7 +28,6 @@ const DashboardPage = () => {
     const handleOnClickImage = () => {
         console.log('handleOnClickImage')
         setShowModalAvatar(true)
-
     }
 
     useEffect(() => {
@@ -69,7 +68,7 @@ const DashboardPage = () => {
                         </div>
                     </Col>
                     <Col md={9}>
-                        <DashboardContent page={page} />
+                        <DashboardContent page={page} userId={user._id} />
                     </Col>
                 </Row>
             </div>
