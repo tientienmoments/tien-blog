@@ -12,7 +12,8 @@ import Run from "../images/run.gif"
 
 const BlogCard = ({ blog, handleClick }) => {
   const dispatch = useDispatch()
-  const [reactions, setReactions] = useState(blog.reactions)
+  console.log(blog);
+  const { reactions } = blog;
   console.log("check blogs", blog);
 
   let name, avatar;
@@ -29,6 +30,10 @@ const BlogCard = ({ blog, handleClick }) => {
   if (!name) {
     name = "Anonymous";
   }
+
+  // useEffect(() => {
+
+  // });
 
   const handleOnClickEmotion = (reaction) => {
     console.log('handleOnClickEmotion.reaction:', reaction)
@@ -64,7 +69,7 @@ const BlogCard = ({ blog, handleClick }) => {
           <div className="separator"></div>
           <Row className="tien-reaction-style" >
             <img src={Laugh} onClick={() => handleOnClickEmotion('laugh')} alt="icon" style={{ width: "70px" }} />
-            {reactions.haha}
+            {reactions.laugh}
             <img src={Sad} onClick={() => handleOnClickEmotion('sad')} alt="icon" style={{ width: "70px" }} />
             {reactions.sad}
             <img src={Like} onClick={() => handleOnClickEmotion('like')} alt="icon" style={{ width: "70px" }} />

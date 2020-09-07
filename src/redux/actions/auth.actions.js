@@ -56,6 +56,7 @@ const loginWithGoogle = goToken => async (dispatch) => {
 
 
 const register = (name, email, password) => async (dispatch) => {
+  console.log("in register action")
   dispatch({ type: types.REGISTER_REQUEST, payload: null });
   try {
     const res = await api.post("/users", { name, email, password });

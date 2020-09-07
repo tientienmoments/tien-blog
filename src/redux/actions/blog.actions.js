@@ -94,8 +94,9 @@ const updateReaction = (targetType, target, reaction, accessToken) => async (dis
     api.defaults.headers.common["authorization"] = bearerToken;
   }
   try {
-    const res = await api.post('/reaction', { targetType, target, reaction })
-    dispatch({ type: types.UPDATE_REACTION_SUCCESS, payload: { reaction: res.data.data.reaction, target } })
+    const res = await api.post('/reactions', { targetType, target, emoji: reaction })
+    console.log(res.status)
+    dispatch({ type: types.UPDATE_REACTION_SUCCESS, payload: { reaction, status: res.status, target } })
   } catch (error) {
     dispatch({ type: types.UPDATE_REACTION_FAILURE, payload: error })
   }

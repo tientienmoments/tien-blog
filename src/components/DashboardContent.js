@@ -49,6 +49,7 @@ export default function DashboardContent({ page, userId, blogDetail }) {
 
     }, [pageDashboard])
 
+
     if (loading || !blogs) {
         return <div>loading</div>
     }
@@ -78,8 +79,8 @@ export default function DashboardContent({ page, userId, blogDetail }) {
                                             <Card.Text>
                                                 {blog.content.length < 100 ? blog.content : blog.content.slice(0, 200) + '...'}
                                             </Card.Text>
-                                            <Link to={`/blog/edit/${blog._id}`}>
-                                                <Button style={{ backgroundColor: "#cf7b7b", border: "none" }}>Edit</Button>
+                                            <Link to={`/blogs/${blog._id}`}>
+                                                <Button style={{ backgroundColor: "#cf7b7b", border: "none" }}>Read</Button>
                                             </Link>
                                         </Card.Body>
                                     </Card>

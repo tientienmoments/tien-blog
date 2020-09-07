@@ -58,12 +58,14 @@ const blogReducer = (state = initialState, action) => {
     case types.CREATE_REVIEW_FAILURE:
       return { ...state, submitReviewLoading: false };
     case types.UPDATE_REACTION_SUCCESS:
-      state.blogs.map(blog => {
+      let blogs = state.blogs.slice();
+      blogs = blogs.map(blog => {
         if (blog._id === payload.target) {
-          blog.reactions[payload.reaction]++
+          blog.reactions[payload.reaction] += (payload.status == 204 ? -1 : 1)
         }
+        return blog;
       })
-      return { ...state, loading: false }
+      return { ...state, blogs, loading: false }
     default:
       return state;
   }

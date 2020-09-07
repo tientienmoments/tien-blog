@@ -27,7 +27,9 @@ const RegisterPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const { name, email, password, password2 } = formData;
+    console.log(formData)
     if (password !== password2) {
+      console.log("diff password")
       setErrors({ ...errors, password2: "Passwords do not match" });
       return;
     }
@@ -55,94 +57,94 @@ const RegisterPage = () => {
     // <Container className="tien-container">
     <div className="tien-fix-width">
       <div className="tien-container">
-      <div className="top"></div>
-      <div className="bottom"></div>
-      <div className="center">
-        <h2>Sign Up</h2>
-        <h5>Create Your Account</h5>
-        <Form onSubmit={handleSubmit}>
-          <input
-            className="tien-input"
-            type="text"
-            placeholder="Name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
+        <div className="top"></div>
+        <div className="bottom"></div>
+        <div className="center">
+          <h2>Sign Up</h2>
+          <h5>Create Your Account</h5>
+          <Form onSubmit={handleSubmit}>
+            <input
+              className="tien-input"
+              type="text"
+              placeholder="Name"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
 
-          />
-          {errors.name && (
-            <small className="form-text text-danger">{errors.name}</small>
-          )}
-          <input
-            className="tien-input"
-            type="email"
-            placeholder="Email Address"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
+            />
+            {errors.name && (
+              <small className="form-text text-danger">{errors.name}</small>
+            )}
+            <input
+              className="tien-input"
+              type="email"
+              placeholder="Email Address"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
 
-          />
-          <input
-            className="tien-input"
-            type="password"
-            placeholder="Password"
-            name="password1"
-            value={formData.password1}
-            onChange={handleChange}
+            />
+            <input
+              className="tien-input"
+              type="password"
+              placeholder="Password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
 
-          />
-          {errors.password && (
-            <small className="form-text text-danger">
-              {errors.password}
-            </small>
-          )}
-          <input
-            className="tien-input"
-            type="password"
-            placeholder="Confirm Password"
-            name="password2"
-            value={formData.password2}
-            onChange={handleChange}
+            />
+            {errors.password && (
+              <small className="form-text text-danger">
+                {errors.password}
+              </small>
+            )}
+            <input
+              className="tien-input"
+              type="password"
+              placeholder="Confirm Password"
+              name="password2"
+              value={formData.password2}
+              onChange={handleChange}
 
-          />
-          {loading ? (
+            />
+            {loading ? (
+              <Button
+                className="btn-block"
+                variant="info"
+                type="button"
+                disabled
+              >
+                <span
+                  className="spinner-border spinner-border-sm"
+                  role="status"
+                  aria-hidden="true"
+                ></span>
+                Loading...
+              </Button>
+            ) : (
+                <Button className="btn-block" type="submit" variant="info">
+                  Register
+                </Button>
+              )}
+
+            {/* TODO: remove fake data */}
             <Button
               className="btn-block"
-              variant="info"
               type="button"
-              disabled
+              variant="light"
+              onClick={fillFakeData}
+
             >
-              <span
-                className="spinner-border spinner-border-sm"
-                role="status"
-                aria-hidden="true"
-              ></span>
-                Loading...
-            </Button>
-          ) : (
-              <Button className="btn-block" type="submit" variant="info">
-                Register
-              </Button>
-            )}
-
-          {/* TODO: remove fake data */}
-          <Button
-            className="btn-block"
-            type="button"
-            variant="light"
-            onClick={fillFakeData}
-
-          >
-            Fill in fake data
+              Fill in fake data
             </Button>
 
-          <p style={{ textAlign: "center" }}>
-            Already have an account? <Link to="/login">Sign In</Link>
-          </p>
+            <p style={{ textAlign: "center" }}>
+              Already have an account? <Link to="/login">Sign In</Link>
+            </p>
 
-        </Form>
+          </Form>
+        </div>
       </div>
-    </div>
     </div>
   );
 };
