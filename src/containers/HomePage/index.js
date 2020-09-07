@@ -20,10 +20,13 @@ const HomePage = () => {
     history.push(`/blogs/${id}`);
   };
 
-  console.log(blogs);
+  console.log("check blogs exit", blogs);
+
   useEffect(() => {
     dispatch(blogActions.blogsRequest(pageNum));
-  }, [dispatch]);
+    console.log(loading);
+    console.log("check blog action", blogActions)
+  }, []);
 
   return (
     <div>
@@ -103,10 +106,10 @@ const HomePage = () => {
         </Jumbotron>}
 
       {loading ? (
-        <Row className="d-flex justify-content-center flex-direction-row" style={{width:"100%"}}><ClipLoader color="#f86c6b" size={150} loading={loading} /></Row>
+        <Row className="d-flex justify-content-center flex-direction-row" style={{ width: "100%" }}><ClipLoader color="#f86c6b" size={150} loading={loading} /></Row>
       ) : (
           <>
-            
+            <PaginationHomePage />
             {blogs.length ? (
               <Container>
                 <CardColumns className="tien-card-area">
@@ -122,7 +125,7 @@ const HomePage = () => {
             ) : (
                 <p>There are no blogs.</p>
               )}
-            <PaginationHomePage />
+
           </>
         )}
 

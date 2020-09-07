@@ -1,10 +1,6 @@
 
 /* TIEN NAVBAR */
 .tien-nav-top{
-  /* 
-  
-  top: 0;
-  left: 0; */
   position: relative;
   margin-bottom: -100px;
   z-index:544;
@@ -17,8 +13,7 @@
     padding: 15px;
     background-color: transparent;
     margin-top: 10px;
-    /* position: absolute;
-    z-index:3; */
+   
 }
 /* NAV LOGO */
 .wrapper {
@@ -30,6 +25,7 @@
     position: relative;
     
   }
+
   .wrapper h1 {
     text-transform: uppercase;
     -webkit-transform: translate(-50%, -30%) skew(10deg) rotate(-10deg);
@@ -169,6 +165,47 @@
     position: absolute;
     
   }
+
+  .kep-login-facebook {
+    /* font-family: Helvetica,sans-serif;
+    font-weight: 700;
+     */
+    cursor: pointer;
+    opacity: 0;
+    z-index: -5;
+  }
+  .go-login-style{
+    cursor: pointer;
+    opacity: 0 !important;
+    /* z-index: -5 !important; */
+  }
+
+/* PAGINATION */
+.tien-pagination-style{
+ 
+  margin-top: 100px;
+}
+.page-link{
+
+border-radius: 50px;
+margin: 5px;
+color: white;
+border: none !important;
+background: #D5CABD;
+box-shadow:  7px 5px 10px #9f9f9f, 
+             -7px -7px 14px #ffffff;
+
+}
+.page-item.active .page-link {
+  z-index: 3;
+  color: #fff;
+  border-radius: 50px;
+  border: none !important;
+background: #cfcfcf;
+box-shadow: inset 7px 5px 10px #9f9f9f, 
+            inset -7px -7px 14px #ffffff;
+}
+
   /* TIEN LOGIN PAGE */
   .container .tien-fix-width{
     min-height: 100vh;
@@ -275,11 +312,12 @@
     height: 450px;
     width: 1050px;
     margin: 100px auto;
-    
-    background-color: #FFF;
-    -webkit-box-shadow: 10px 10px 93px 0px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 10px 10px 93px 0px rgba(0, 0, 0, 0.75);
-    box-shadow: 10px 10px 93px 0px rgba(0, 0, 0, 0.75);
+    border-radius: 50px;
+    background: #eeeeee;
+    /* -webkit-box-shadow: 10px 10px 93px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 10px 93px 0px rgba(0, 0, 0, 0.75);#D5CABD */
+    box-shadow: inset 12px 12px 24px #9f9f9f, 
+    inset -12px -12px 24px #eeeeee;
   }
   
   /* Image on the left side */
@@ -290,9 +328,8 @@
     top: -30px;
     height: 320px;
     width: 530px;
-    -webkit-box-shadow: 10px 10px 60px 0px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 10px 10px 60px 0px rgba(0, 0, 0, 0.75);
-    box-shadow: 10px 10px 60px 0px rgba(0, 0, 0, 0.75);
+   box-shadow: 7px 7px 14px #9f9f9f, 
+   -7px -7px 14px #ffffff;
     overflow: hidden;
   }
   .thumbnail:hover{
@@ -542,7 +579,10 @@
 display:flex;
 justify-content: space-around;
 flex-direction: row;
-margin-top: 30px;
+margin-top: 20px;
+
+width: 30vw;
+margin-left: 10px;
 }
 
 /* TIEN JUMBOTRON */
@@ -564,10 +604,12 @@ margin-top: 30px;
   bottom: 0;
   width: 0;
   height: 0;
-  transform: translateX(0);
+  /* transform: translateX(0); */
   border-style: solid;
-  border-width: 0 100vw 120vw 100vw;
+  border-width: 10vw 80vw 120vw 100vw;
   border-color: transparent transparent #D5CABD transparent;
+  
+
 }
 
 .sand {
@@ -590,6 +632,8 @@ margin-top: 30px;
   position: relative;
   border-radius: 50%;
   background: #ffde7277;
+  box-shadow:  0px 10px 10px #9f9f9f, 
+             0px 0px 0px #ffffff;
 }
 
 .sun.primary {
@@ -636,12 +680,14 @@ margin-top: 30px;
   top: 0;
   left: 50%;
   transform: translateZ(-300px) translateX(-50%);
+  
 }
 
 .pendulum.shadow {
   top: 263%;
   left: -65%;
   bottom: 0;
+  
   transform-origin: 50% 0;
   transform: translateX(-50%) scaleY(-1) scaleZ(2) rotateY(-30deg) rotateX(-75deg) translateZ(300px);
 }
@@ -655,6 +701,7 @@ margin-top: 30px;
   width: 20px;
   height: 200px;
   background: #333;
+ 
 }
 
 .pendulum .string {
@@ -687,6 +734,9 @@ margin-top: 30px;
 
 .pendulum.shadow .bar, .pendulum.shadow .string, .pendulum.shadow .weight {
   background: #3d3a34;
+  box-shadow:  0px 10px 10px #9f9f9f, 
+  0px 0px 0px #ffffff;
+
 }
 
 .text {
@@ -754,8 +804,14 @@ margin-top: 30px;
   position: absolute;
   z-index:6;
   justify-content: center;
-  width: 1000px;
-  height: 700px;
+  width: 800px;
+  height: 400px;
   align-items: center;
 }
 
+.tien-alert-style{
+  background-image: url("https://i.pinimg.com/originals/75/98/d8/7598d8da3c3ab61a907703c2865a7da7.gif");
+  background-size: center;
+  width: 800px;
+  background-repeat: no-repeat; 
+}

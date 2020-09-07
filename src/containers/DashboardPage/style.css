@@ -1,11 +1,19 @@
 .dashboard-area{
     margin-top: 150px;
     height: 85vh;
+    background-color: #D5CABD;
+    ;
 }
+
+/* background: #cfcfcf;
+box-shadow: inset 7px 5px 10px #9f9f9f, 
+            inset -7px -7px 14px #ffffff; */
 .dashboard-left-menu{
     height: 85vh;
-    background-color: #cf7b7b;
-    color: white;
+    background: #D5CABD;
+    /* background: linear-gradient(145deg, #dddddd, #D5CABD); */
+    box-shadow:  -7px 7px 14px #D5CABD, 
+    7px -7px 14px #9f9f9f;
 }
 .dashboard-user-area{
     display: flex;
@@ -15,8 +23,8 @@
     padding: 20px;
 }
 .dashboard-avatar{
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
 }
 .dashboard-avatar:hover {
@@ -28,11 +36,13 @@
 
 .dashboard-user{ 
     margin-top: 10px;
-    /* text-transform: uppercase; */
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 800;
     color: white;
 }
 .dashboard-menu-area{
-    padding-left: 10px;
+    padding-left: 50px;
     /* font-weight: 700; */
     font-size: 20px;
 }
@@ -45,7 +55,7 @@
 }
 .dashboard-menu-item:hover{
     /* border: 1px solid red; */
-    background-color: #f2bfc7;
+    background-color: #e6d4c0;
 }
 
 

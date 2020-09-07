@@ -6,7 +6,7 @@ import { authActions } from "../../redux/actions";
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({
-    email: "minh@cs.vn",
+    email: "tientienmoments@gmail.com",
     password: "123",
   });
   const [errors, setErrors] = useState({
@@ -32,14 +32,14 @@ const LoginPage = () => {
 
   if (isAuthenticated) return <Redirect to="/" />;
   return (
-    
+
     <div className="tien-fix-width">
       <div className="tien-container">
-      <div className="top"></div>
-      <div className="bottom"></div>
-      <div className="center" >
-        <h2>Please Sign In</h2>
-        
+        <div className="top"></div>
+        <div className="bottom"></div>
+        <div className="center" >
+          <h2>Please Sign In</h2>
+
           <Form onSubmit={handleSubmit}>
 
             <input
@@ -79,9 +79,9 @@ const LoginPage = () => {
                 Loading...
               </Button>
             ) : (
-              <div>
-                <Button className="btn-block" type="submit" variant="info">
-                  Login
+                <div>
+                  <Button className="btn-block" type="submit" variant="info">
+                    Login
                 </Button>
                 </div>
               )}
@@ -89,11 +89,11 @@ const LoginPage = () => {
               Don't have an account? <Link to="/register">Sign Up</Link>
             </p>
 
-          
-        </Form>
+
+          </Form>
+        </div>
       </div>
-      </div>
-      </div >
+    </div >
 
   );
 };

@@ -17,11 +17,14 @@ const authReducer = (state = initialState, action) => {
     case types.UPLOAD_AVATAR_REQUEST:
       return { ...state, loading: true };
     case types.LOGIN_SUCCESS:
-      localStorage.setItem("accessToken", payload.accessToken);
+      console.log("tien payload data", payload)
+      localStorage.setItem("accessToken", payload.data.accessToken);
+
+
       return {
         ...state,
         user: { ...payload.data },
-        accessToken: payload.accessToken,
+        accessToken: payload.data.accessToken,
         loading: false,
         isAuthenticated: true,
       };
@@ -62,7 +65,7 @@ const authReducer = (state = initialState, action) => {
       {
         // console.log('payload.avatar.url:', payload)
         // console.log('state.user.avatar.url:', state.user.avatar.url)
-        state.user.avatar.url = payload.url
+        state.user.avatar = payload.url
         return {
           ...state, loading: false,
         }

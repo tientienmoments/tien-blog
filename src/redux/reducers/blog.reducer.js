@@ -21,7 +21,9 @@ const blogReducer = (state = initialState, action) => {
       return { ...state, loading: true };
 
     case types.BLOG_REQUEST_SUCCESS:
-      return { ...state, blogs: payload.blogs, pageNum: payload.pageNum, totalResults: payload.totalResults, loading: false };
+      console.log('tien check reducer ', payload);
+
+      return { ...state, blogs: payload.blogs, pageNum: payload.currentPage, totalResults: payload.totalPages, loading: false };
 
     case types.UPDATE_BLOG_SUCCESS:
     case types.GET_SINGLE_BLOG_REQUEST_SUCCESS:

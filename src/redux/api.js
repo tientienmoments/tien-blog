@@ -1,9 +1,10 @@
 import axios from "axios";
 import store from "./store";
 import { alertActions } from "./actions";
+const REACT_APP_BASE_URL = process.env.REACT_APP_BASE_URL;
 
 const api = axios.create({
-  baseURL: "https://social-api-cs.great.dev/",
+  baseURL: REACT_APP_BASE_URL,
   headers: {
     "Content-Type": "application/json",
   },

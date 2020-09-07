@@ -6,10 +6,8 @@ import { alertActions } from "./alert.actions";
 const blogsRequest = (page) => async (dispatch) => {
   dispatch({ type: types.BLOG_REQUEST, payload: null });
   try {
-    const resTotal = await api.get(`/blogs?limit=1000&page=1`);
-    const totalResults = resTotal.data.results
-    const res = await api.get(`/blogs?limit=${types.LIMIT_PER_PAGE}&page=${page}`);
-    dispatch({ type: types.BLOG_REQUEST_SUCCESS, payload: { blogs: res.data.data, totalResults, pageNum: page } });
+    const res = await api.get(`/blogs?limit=5&page=${page}`);
+    dispatch({ type: types.BLOG_REQUEST_SUCCESS, payload: res.data.data });
   } catch (error) {
     dispatch({ type: types.BLOG_REQUEST_FAILURE, payload: error });
   }
@@ -47,7 +45,7 @@ const createNewBlog = (title, content) => async (dispatch) => {
     const formData = new FormData();
     formData.append("title", title);
     formData.append("content", content);
-    const res = await api.post("/blogs", formData);
+    const res = await api.post("/blogs", { title, content });
 
     dispatch({
       type: types.CREATE_BLOG_SUCCESS,
@@ -62,9 +60,6 @@ const createNewBlog = (title, content) => async (dispatch) => {
 const updateBlog = (blogId, title, content) => async (dispatch) => {
   dispatch({ type: types.UPDATE_BLOG_REQUEST, payload: null });
   try {
-    // let formData = new FormData();
-    // formData.set("title", title);
-    // formData.set("content", content);
     const res = await api.put(`/blogs/${blogId}`, { title, content });
 
     dispatch({

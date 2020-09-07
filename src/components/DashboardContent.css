@@ -1,7 +1,19 @@
 .dashboard-blog-area{
-    display: flex;
+    
+    display: block;
     flex-direction: column;
     /* flex-wrap: wrap; */
     overflow: scroll;
-    height: 470px;
+    height: 500px;
+    width: 70vw;
+    justify-content: space-around;
+    margin: 20px;
+    
+
+}
+.tien-single-blog{
+    margin-top: 50px;
+    background: #D5CABD;
+    box-shadow: inset 7px 7px 14px #bfb09e, 
+            inset -7px -7px 14px rgba(255, 255, 255, 0.803);
 }

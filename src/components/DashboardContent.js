@@ -3,14 +3,24 @@ import { dashboardAction } from '../redux/actions'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Row, Col, Card, Button } from 'react-bootstrap'
+// import { blogActions } from "../redux/actions";
+// import { useParams } from "react-router-dom";
 import './DashboardContent.css'
 
-export default function DashboardContent({ page, userId }) {
+
+export default function DashboardContent({ page, userId, blogDetail }) {
+    // const params = useParams();
     const dispatch = useDispatch();
     const [pageDashboard, setPageDashboard] = useState(page)
+    const [loading, setLoading] = useState(false)
+
     const blogs = useSelector((state) => state.dashboard.blogs)
+
+    const total_blogs = blogDetail.length;
+
+    console.log("dasboard total blogs", total_blogs)
+
     const friends = useSelector((state) => state.dashboard.friends)
-    const total_blogs = useSelector((state) => state.dashboard.total_blogs)
     const total_friends = useSelector((state) => state.dashboard.total_friends)
 
     const loadContent = (page) => {
@@ -34,13 +44,18 @@ export default function DashboardContent({ page, userId }) {
     }
 
     useEffect(() => {
-        loadContent(pageDashboard)
+        loadContent(pageDashboard);
+        setLoading()
+
     }, [pageDashboard])
 
+    if (loading || !blogs) {
+        return <div>loading</div>
+    }
     return (
         <div>
             {page === 'dashboard' ?
-                <div>
+                <div style={{ display: "none !important" }}>
                     <h1>Dashboard</h1>
                     <Row>
                         <Col>
@@ -52,19 +67,19 @@ export default function DashboardContent({ page, userId }) {
                     </Row>
                 </div>
                 : page === 'blogs' ?
-                    <div>
+                    <div >
                         <h1>Blogs</h1>
                         <div className="dashboard-blog-area">
-                            {blogs.length ? blogs.map(blog => {
+                            {blogDetail.length ? blogDetail.map(blog => {
                                 return (
-                                    <Card>
+                                    <Card className="tien-single-blog">
                                         <Card.Body>
                                             <Card.Title>{blog.title}</Card.Title>
                                             <Card.Text>
-                                                {blog.content.length < 100 ? blog.content : blog.content.slice(0, 97) + '...'}
+                                                {blog.content.length < 100 ? blog.content : blog.content.slice(0, 200) + '...'}
                                             </Card.Text>
                                             <Link to={`/blog/edit/${blog._id}`}>
-                                                <Button variant="primary">Edit</Button>
+                                                <Button style={{ backgroundColor: "#cf7b7b", border: "none" }}>Edit</Button>
                                             </Link>
                                         </Card.Body>
                                     </Card>
